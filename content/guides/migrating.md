@@ -80,16 +80,18 @@ In webpack v1, loaders were commonly chained with `!`. This style is only suppor
 
 ``` diff
   module: {
--   loaders: {
-+   rules: {
-      test: /\.less$/,
--     loader: "style-loader!css-loader!less-loader"
-+     use: [
-+       "style-loader",
-+       "css-loader",
-+       "less-loader"
-+     ]
-    }
+-   loaders: [
++   rules: [
+      {
+        test: /\.less$/,
+-       loader: "style-loader!css-loader!less-loader"
++       use: [
++         "style-loader",
++         "css-loader",
++         "less-loader"
++       ]
+      }
+    ]
   }
 ```
 
